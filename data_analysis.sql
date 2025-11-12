@@ -49,11 +49,23 @@ SELECT * FROM stores;
 SELECT * FROM transactions
 WHERE customerid in ('C045', 'C170', 'C073');
 
+-- derived columns
+
+SELECT quantity * (pr.unitprice * (1-discount)) as salesamount
+FROM transactions tr
+JOIN products pr
+USING (productid);
+
+SELECT (unitprice - costprice) * quantity as profit
+FROM transactions tr
+JOIN products pr
+USING (productid);
+
 -- CUSTOMER INSIGHTS
 
 -- Demographic Distribution
 -- gender
-SELECT 
+SELECT
 	gender,
 	COUNT(*) total
 FROM customers
