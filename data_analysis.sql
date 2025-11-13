@@ -198,3 +198,12 @@ JOIN customer_first_purchase fp
 USING (customerid)
 GROUP BY f.customerid, fp.first_purchase_month, purchase_month, months_since_first
 ORDER BY fp.first_purchase_month, months_since_first;
+
+CREATE OR REPLACE VIEW v_sales_fact AS
+SELECT * FROM sales_fact;
+
+CREATE OR REPLACE VIEW v_customer_cohort AS
+SELECT * FROM customer_cohort;
+
+CREATE OR REPLACE VIEW v_customer_first_purchase AS
+SELECT * FROM customer_first_purchase;
