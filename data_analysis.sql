@@ -1,3 +1,4 @@
+
 -- table creation
 
 CREATE TABLE IF NOT EXISTS customers (
